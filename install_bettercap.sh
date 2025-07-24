@@ -6,7 +6,7 @@ echo "⚙️ Installing Bettercap Setup..."
 # 1. Create Bettercap caplet with SSID whitelist
 echo "📶 Creating Bettercap caplet..."
 cat << EOF > /home/pi/bettercap.cap
-set wifi.whitelist.ssid YNJE,Fake,ASUS-VIVOBOOK
+set wifi.whitelist.ssid YOURNETWORKNAMEHERE
 wifi.recon on
 wifi.assoc on
 EOF
