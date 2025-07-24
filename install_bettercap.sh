@@ -1,10 +1,9 @@
 #!/bin/bash
 set -e
-
-echo "⚙️ Installing Bettercap Setup..."
+echo "Installing Bettercap Setup..."
 
 # 1. Create Bettercap caplet with SSID whitelist
-echo "📶 Creating Bettercap caplet..."
+echo "Creating Bettercap caplet..."
 cat << EOF > /home/pi/bettercap.cap
 set wifi.whitelist.ssid YOURNETWORKNAMEHERE
 wifi.recon on
@@ -12,7 +11,7 @@ wifi.assoc on
 EOF
 
 # 2. Create startup script
-echo "🚀 Creating Bettercap startup script..."
+echo "Creating Bettercap startup script..."
 cat << 'EOF' > /usr/local/bin/start_bettercap.sh
 #!/bin/bash
 
@@ -31,7 +30,7 @@ EOF
 chmod +x /usr/local/bin/start_bettercap.sh
 
 # 3. Create systemd service
-echo "🔧 Setting up systemd service..."
+echo "Setting up systemd service..."
 cat << EOF > /etc/systemd/system/bettercap.service
 [Unit]
 Description=Bettercap Dynamic Interface Launcher
@@ -58,7 +57,7 @@ EOF
 udevadm control --reload-rules
 
 # 5. Create hotplug script
-echo "🔁 Creating hotplug switch script..."
+echo "Creating hotplug switch script..."
 cat << 'EOF' > /usr/local/bin/switch_wifi.sh
 #!/bin/bash
 
@@ -76,11 +75,11 @@ EOF
 chmod +x /usr/local/bin/switch_wifi.sh
 
 # 6. Hotplug detection rule
-echo "📡 Adding hotplug udev rule..."
+echo "Adding hotplug udev rule..."
 cat << EOF > /etc/udev/rules.d/99-hotplug-wifi.rules
 SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="0cf3", ATTRS{idProduct}=="9271", RUN+="/usr/local/bin/switch_wifi.sh"
 EOF
 
 udevadm control --reload-rules
 
-echo "✅ Setup complete! Reboot to activate everything."
+echo "Setup complete! Reboot to activate everything."
