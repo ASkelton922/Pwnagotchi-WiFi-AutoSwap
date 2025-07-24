@@ -1,8 +1,6 @@
 # Pwnagotchi-WiFi-AutoSwap
 An automated setup script for Bettercap on Raspberry Pi that dynamically switches between internal and external Wi-Fi adapters based on availability. Supports hotplugging of Alfa AWUS036NHA, auto-configures monitor mode, whitelists home SSIDs, and integrates with systemd for seamless boot-time activation. No overlay changes required.
 
-# Bettercap-Hotplug-Wifi-Switcher
-
 🎯 **Purpose**  
 A dynamic Bettercap setup for Raspberry Pi with Pwnagotchi support that auto-detects available Wi-Fi adapters and switches seamlessly between internal (`wlan0`) and external Alfa AWUS036NHA (`wlan1`). It enables monitor mode, respects your home SSID whitelist, and hotplug triggers without any overlay modifications.
 
@@ -22,8 +20,8 @@ A dynamic Bettercap setup for Raspberry Pi with Pwnagotchi support that auto-det
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Bettercap-Hotplug-Wifi-Switcher.git
-   cd Bettercap-Hotplug-Wifi-Switcher
+   git clone https://github.com/ASkelton922/Pwnagotchi-WiFi-AutoSwap.git
+   cd Pwnagotchi-WiFi-AutoSwap
 
 2. Run the installer:
    ```bash
